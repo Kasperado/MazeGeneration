@@ -1,10 +1,11 @@
 // Config
 const mazeSize = 20;
 const canvasSize = 800;
-const tileSize = canvasSize / mazeSize;
-let createInstantly = false;
+const stepsPerSecond = 60;
+const createInstantly = false;
 
 // Data
+const tileSize = canvasSize / mazeSize;
 const grid = new Array(mazeSize).fill().map(e => new Array(mazeSize));
 let allTiles = [];
 let allWalls = [];  
@@ -62,7 +63,7 @@ function setup() {
   visitedStack.push(currentTile);
   if (createInstantly) while (visitedStack.length > 0) { randomDepthFirstSearch(); }
   // Speed of animation
-  frameRate(60);
+  frameRate(stepsPerSecond);
 }
 // This is also update function
 function draw() {
